@@ -1,4 +1,4 @@
-resource "aws_glue_job" "example" {
+resource "aws_glue_job" "example-glue-job" {
   name     = "example"
   role_arn = aws_iam_role.glue_role.arn
 
