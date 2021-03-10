@@ -44,7 +44,7 @@ resource "aws_s3_bucket_object" "object" {
 
   bucket = aws_s3_bucket.data-lake-bucket.id
 
-  key    = "glue-_script"
+  key    = "glue-_script/example.py"
 
   acl    = "private"  # or can be "public-read"
 
