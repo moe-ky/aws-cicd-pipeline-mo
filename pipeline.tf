@@ -107,6 +107,25 @@ resource "aws_codepipeline" "cicd_pipeline" {
         }
     }
 
+
+  stage {
+    name = "Gate" # TODO: SNS
+
+    action {
+      name      = "TerraformPlanApproval"
+      category  = "Approval"
+      owner     = "AWS"
+      provider  = "Manual"
+      version   = "1"
+      run_order = 1
+
+      configuration = {
+        CustomData = "Do you approve the plan?"
+      }
+    }
+  }
+
+
     stage {
         name = "Deploy"
         action{
