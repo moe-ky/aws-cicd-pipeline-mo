@@ -23,3 +23,16 @@ resource "aws_s3_bucket" "pipeline-artifact" {
 
 }
 
+resource "aws_s3_bucket" "data-lake-bucket" {
+  bucket = "data-lake-debt-bucket"
+  acl    = "private"
+
+  tags = {
+    Name        = "mo-test"
+    Environment = "Dev"
+  }
+
+  versioning {
+    enabled = true
+  }
+}
