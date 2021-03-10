@@ -36,3 +36,20 @@ resource "aws_s3_bucket" "data-lake-bucket" {
     enabled = true
   }
 }
+
+
+
+# Upload an object
+resource "aws_s3_bucket_object" "object" {
+
+  bucket = aws_s3_bucket.data-lake-bucket.id
+
+  key    = "glue-_script"
+
+  acl    = "private"  # or can be "public-read"
+
+  source = "example.py"
+
+  etag = filemd5("example.py")
+
+}
