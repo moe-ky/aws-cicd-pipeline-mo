@@ -9,3 +9,7 @@ variable codestar_connector_credentials {
 variable region {
     type = string
 }
+
+variable dev_id {
+    type = string
+}
